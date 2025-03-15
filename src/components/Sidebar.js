@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaBars, FaTachometerAlt, FaUserEdit, FaClipboardList, FaSignOutAlt } from "react-icons/fa"; 
+import { FaBars, FaTachometerAlt, FaUserEdit, FaList, FaSignOutAlt } from "react-icons/fa"; 
 
 function Sidebar() {
     const navigate = useNavigate();
@@ -13,13 +13,13 @@ function Sidebar() {
     }, []);
 
     const menuItems = [
-        { title: "Dashboard", path: "/dashboard", icon: <FaTachometerAlt /> },
         ...(user && user.role === "user" ? [
+            { title: "Dashboard", path: "/dashboard", icon: <FaList /> },
             { title: "Profile", path: "/profile", icon: <FaUserEdit /> },
-            { title: "Assessments", path: "/assessments", icon: <FaClipboardList /> },
         ] : []),
         ...(user && user.role === "admin" ? [
-            { title: "Admin Panel", path: "/admin-dashboard", icon: <FaTachometerAlt /> },
+            { title: "Edit Assessments", path: "/admin-dashboard", icon: <FaList /> },
+            { title: "Student Statistics", path: "/statistics", icon: <FaTachometerAlt /> },
         ] : []),
         { title: "Logout", path: "/logout", icon: <FaSignOutAlt /> }
     ];

@@ -20,7 +20,7 @@ function Login() {
     
             localStorage.setItem("user", JSON.stringify({
                 token: response.data.token,
-                role: response.data.role || "guest", // Default role if missing
+                role: response.data.role || "guest",
                 email: response.data.email
             }));            
     
