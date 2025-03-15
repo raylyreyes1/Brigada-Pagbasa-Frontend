@@ -8,6 +8,8 @@ import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import Profile from "./pages/Profile";
 import Assessments from "./pages/Assessments";
+import AssessmentsTest from "./pages/AssessmentsTest";
+import Statistics from "./pages/Statistics";
 
 const engine = new Styletron();
 
@@ -30,8 +32,10 @@ function App() {
                         <Route path="/" element={<Login />} />
                         <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} allowedRoles={["user", "admin"]} />} />
                         <Route path="/admin-dashboard" element={<ProtectedRoute element={<AdminDashboard />} allowedRoles={["admin"]} />} />
+                        <Route path="/statistics" element={<ProtectedRoute element={<Statistics />} allowedRoles={["admin"]} />} />
                         <Route path="/profile" element={<ProtectedRoute element={<Profile />} allowedRoles={["user"]} />} />
                         <Route path="/assessments" element={<ProtectedRoute element={<Assessments />} allowedRoles={["user"]} />} />
+                        <Route path="/assessments/:assessmentId" element={<ProtectedRoute element={<AssessmentsTest />} allowedRoles={["user"]} />} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </Router>
