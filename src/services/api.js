@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://literacy-dapat-backend.vercel.app/";
+const API_URL = "http://localhost:5000/api";
 
 export const loginUser = async (email, password) => {
     try {
